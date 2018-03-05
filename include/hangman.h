@@ -4,38 +4,50 @@
 
 #include <vector>
 #include <map>
+#include <experimental/optional>
 #include <fstream>
 #include <iterator>
 #include <algorithm>
 #include <iostream>
 
-class hangman {
+enum class Mode {
+	HANGMAN,
+	CROSSWORD
+};
+
+class Hangman {
+
+	std::vector<std::string> dictionary;
+	std::vector<std::string> possible_words;
+	Mode mode;
 
 public:
 
-	std::vector<std::string> words;
-	std::vector<std::string> possible_words;
+	Hangman(const Mode m = Mode::HANGMAN) : mode(m) {}
+
+	void set_mode(const Mode &m) { mode = m; }
+
 
 	void read_dictionary(const std::string &path) {
 
-		std::ifstream dictionary(path);
+		std::ifstream dictionary_file(path);
 
 		std::copy(
-			std::istream_iterator<std::string>(dictionary),
+			std::istream_iterator<std::string>(dictionary_file),
 			std::istream_iterator<std::string>(),
-			std::back_inserter(words)
+			std::back_inserter(dictionary)
 		);
 	}
 
 	std::vector<std::string> filter_width(
-		const std::vector<std::string> &all_words,
+		const std::vector<std::string> &dictionary,
 		unsigned length
 	) {
 		std::vector<std::string> result;
 
 		std::copy_if(
-			std::begin(words),
-			std::end(words),
+			std::begin(dictionary),
+			std::end(dictionary),
 			std::begin(result),
 			[&length](const std::string &s) {
 				return (s.length() == length);
@@ -46,13 +58,13 @@ public:
 	}
 
 	std::vector<std::string> filter_match(
-		const std::vector<std::string> &all_words,
+		const std::vector<std::string> &dictionary,
 		const std::string &pattern,
 		char wildcard = '*'
 	) {
 		std::vector<std::string> result;
 
-		for (const std::string &w: all_words) {
+		for (const std::string &w: dictionary) {
 
 			bool match = true;
 
@@ -89,11 +101,11 @@ public:
 	}
 
 	std::map<char, unsigned> count_character_frequency(
-		const std::vector<std::string> &all_words
+		const std::vector<std::string> &dictionary
 	) {
 		std::map<char, unsigned> result = initialize_character_frequency();
 
-		for (const std::string &w : all_words) {
+		for (const std::string &w : dictionary) {
 
 			bool checked[26] = { false };
 
@@ -107,6 +119,59 @@ public:
 		}
 
 		return result;
+	}
+
+	std::vector<std::pair<char, unsigned>> sort_chars(
+		const std::map<char, unsigned> &character_frequency
+	) {
+
+		std::vector<std::pair<char, unsigned>> result(
+			std::begin(character_frequency),
+			std::end(character_frequency)
+		);
+
+		std::sort(
+			std::begin(result),
+			std::end(result),
+			[](
+				const std::pair<char, unsigned> &lhs,
+				const std::pair<char, unsigned> &rhs
+			) -> bool {
+				return lhs.second < rhs.second;
+			}
+		);
+
+		return result;
+	}
+
+	std::experimental::optional<char> get_next_vowel(
+		const std::map<char, unsigned> &character_frequency
+	) {
+
+		std::string vowels = "aeiouy";
+
+		for (const std::pair<char, unsigned> &p : sort_chars(character_frequency)) {
+			if (vowels.find(p.first) != std::string::npos) {
+				return p.first;
+			}
+		}
+
+		return std::experimental::nullopt;
+	}
+
+	std::experimental::optional<char> get_next_constant(
+		const std::map<char, unsigned> &character_frequency
+	) {
+
+		std::string constants = "bcdfghjklmnpqrstvwxz";
+
+		for (const std::pair<char, unsigned> &p : sort_chars(character_frequency)) {
+			if (constants.find(p.first) != std::string::npos) {
+				return p.first;
+			}
+		}
+
+		return std::experimental::nullopt;
 	}
 };
 
