@@ -10,169 +10,169 @@
 #include <algorithm>
 #include <iostream>
 
-enum class Mode {
-	HANGMAN,
-	CROSSWORD
-};
 
-class Hangman {
+std::vector<std::string> read_dictionary(const std::string &path) {
 
-	std::vector<std::string> dictionary;
-	std::vector<std::string> possible_words;
-	Mode mode;
+	std::vector<std::string> result;
 
-public:
+	std::ifstream dictionary_file(path);
 
-	Hangman(const Mode m = Mode::HANGMAN) : mode(m) {}
+	std::copy(
+		std::istream_iterator<std::string>(dictionary_file),
+		std::istream_iterator<std::string>(),
+		std::back_inserter(result)
+	);
 
-	void set_mode(const Mode &m) { mode = m; }
+	return result;
+}
 
+std::vector<std::string> filter_width(
+	const std::vector<std::string> &dictionary,
+	unsigned length
+) {
+	std::vector<std::string> result;
 
-	void read_dictionary(const std::string &path) {
+	std::copy_if(
+		std::begin(dictionary),
+		std::end(dictionary),
+		std::begin(result),
+		[&length](const std::string &s) {
+			return (s.length() == length);
+		}
+	);
 
-		std::ifstream dictionary_file(path);
+	return result;
+}
 
-		std::copy(
-			std::istream_iterator<std::string>(dictionary_file),
-			std::istream_iterator<std::string>(),
-			std::back_inserter(dictionary)
-		);
-	}
+std::vector<std::string> filter_match(
+	const std::vector<std::string> &dictionary,
+	const std::string &pattern,
+	char wildcard = '*'
+) {
+	std::vector<std::string> result;
 
-	std::vector<std::string> filter_width(
-		const std::vector<std::string> &dictionary,
-		unsigned length
-	) {
-		std::vector<std::string> result;
+	for (const std::string &w: dictionary) {
 
-		std::copy_if(
-			std::begin(dictionary),
-			std::end(dictionary),
-			std::begin(result),
-			[&length](const std::string &s) {
-				return (s.length() == length);
-			}
-		);
+		bool match = true;
 
-		return result;
-	}
-
-	std::vector<std::string> filter_match(
-		const std::vector<std::string> &dictionary,
-		const std::string &pattern,
-		char wildcard = '*'
-	) {
-		std::vector<std::string> result;
-
-		for (const std::string &w: dictionary) {
-
-			bool match = true;
-
-			if (pattern.length() != w.length()) {
-				continue;
-			}
-
-			for (unsigned i = 0; i < w.length(); ++i) {
-
-				if (pattern[i] == wildcard) { continue; }
-
-				if (w[i] != pattern[i]) {
-
-					match = false;
-					break;
-				}
-			}
-
-			if (match) { result.push_back(w); }
+		if (pattern.length() != w.length()) {
+			continue;
 		}
 
-		return result;
-	}
+		for (unsigned i = 0; i < w.length(); ++i) {
 
-	std::map<char, unsigned> initialize_character_frequency() {
+			if (pattern[i] == wildcard) { continue; }
 
-		std::map<char, unsigned> result;
+			if (w[i] != pattern[i]) {
 
-		for (unsigned i = 'a'; i < 'z'; ++i) {
-			result.find(i)->second = 0;
-		}
-
-		return result;
-	}
-
-	std::map<char, unsigned> count_character_frequency(
-		const std::vector<std::string> &dictionary
-	) {
-		std::map<char, unsigned> result = initialize_character_frequency();
-
-		for (const std::string &w : dictionary) {
-
-			bool checked[26] = { false };
-
-			for (char c: w) {
-
-				if (checked[c - 'a']) { continue; }
-				checked[c - 'a'] = true;
-
-				result.find(c)->second++;
+				match = false;
+				break;
 			}
 		}
 
-		return result;
+		if (match) { result.push_back(w); }
 	}
 
-	std::vector<std::pair<char, unsigned>> sort_chars(
-		const std::map<char, unsigned> &character_frequency
-	) {
+	return result;
+}
 
-		std::vector<std::pair<char, unsigned>> result(
-			std::begin(character_frequency),
-			std::end(character_frequency)
-		);
+std::map<char, unsigned> initialize_character_frequency() {
 
-		std::sort(
-			std::begin(result),
-			std::end(result),
-			[](
-				const std::pair<char, unsigned> &lhs,
-				const std::pair<char, unsigned> &rhs
-			) -> bool {
-				return lhs.second < rhs.second;
-			}
-		);
+	std::map<char, unsigned> result;
 
-		return result;
+	for (unsigned i = 'a'; i < 'z'; ++i) {
+		result.find(i)->second = 0;
 	}
 
-	std::experimental::optional<char> get_next_vowel(
-		const std::map<char, unsigned> &character_frequency
-	) {
+	return result;
+}
 
-		std::string vowels = "aeiouy";
+std::map<char, unsigned> count_character_frequency(
+	const std::vector<std::string> &dictionary
+) {
+	std::map<char, unsigned> result = initialize_character_frequency();
 
-		for (const std::pair<char, unsigned> &p : sort_chars(character_frequency)) {
-			if (vowels.find(p.first) != std::string::npos) {
-				return p.first;
-			}
+	for (const std::string &w : dictionary) {
+
+		bool checked[26] = { false };
+
+		for (char c: w) {
+
+			if (checked[c - 'a']) { continue; }
+			checked[c - 'a'] = true;
+
+			result.find(c)->second++;
 		}
-
-		return std::experimental::nullopt;
 	}
 
-	std::experimental::optional<char> get_next_constant(
-		const std::map<char, unsigned> &character_frequency
-	) {
+	return result;
+}
 
-		std::string constants = "bcdfghjklmnpqrstvwxz";
+std::vector<std::pair<char, unsigned>> sort_chars(
+	const std::map<char, unsigned> &character_frequency
+) {
 
-		for (const std::pair<char, unsigned> &p : sort_chars(character_frequency)) {
-			if (constants.find(p.first) != std::string::npos) {
-				return p.first;
-			}
+	std::vector<std::pair<char, unsigned>> result(
+		std::begin(character_frequency),
+		std::end(character_frequency)
+	);
+
+	std::sort(
+		std::begin(result),
+		std::end(result),
+		[](
+			const std::pair<char, unsigned> &lhs,
+			const std::pair<char, unsigned> &rhs
+		) -> bool {
+			return lhs.second < rhs.second;
 		}
+	);
 
-		return std::experimental::nullopt;
+	return result;
+}
+
+std::experimental::optional<char> get_next_vowel(
+	const std::map<char, unsigned> &character_frequency,
+	const std::string &ignore
+) {
+
+	std::string vowels = "aeiouy";
+
+	for (
+		const std::pair<char, unsigned> &p
+		: sort_chars(character_frequency)
+	) {
+		if (
+			vowels.find(p.first) != std::string::npos
+			&& ignore.find(p.first) == std::string::npos
+		) {
+			return p.first;
+		}
 	}
-};
+
+	return std::experimental::nullopt;
+}
+
+std::experimental::optional<char> get_next_constant(
+	const std::map<char, unsigned> &character_frequency,
+	const std::string &ignore
+) {
+
+	std::string constants = "bcdfghjklmnpqrstvwxz";
+
+	for (
+		const std::pair<char, unsigned> &p
+		: sort_chars(character_frequency)
+	) {
+		if (
+			constants.find(p.first) != std::string::npos
+			&& ignore.find(p.first) == std::string::npos
+		) {
+			return p.first;
+		}
+	}
+
+	return std::experimental::nullopt;
+}
 
 #endif // HANGMAN_H
