@@ -108,18 +108,19 @@ std::map<char, unsigned> count_character_frequency(
 	return result;
 }
 
-std::vector<std::pair<char, unsigned>> sort_chars(
+std::vector<char> frequency_to_array(
 	const std::map<char, unsigned> &character_frequency
 ) {
 
-	std::vector<std::pair<char, unsigned>> result(
+	std::vector<std::pair<char, unsigned>> to_sort(
 		std::begin(character_frequency),
 		std::end(character_frequency)
 	);
+	to_sort.shrink_to_fit();
 
 	std::sort(
-		std::begin(result),
-		std::end(result),
+		std::begin(to_sort),
+		std::end(to_sort),
 		[](
 			const std::pair<char, unsigned> &lhs,
 			const std::pair<char, unsigned> &rhs
@@ -128,25 +129,29 @@ std::vector<std::pair<char, unsigned>> sort_chars(
 		}
 	);
 
+	std::vector<char> result;
+	result.reserve(to_sort.size());
+
+	for (unsigned i = 0; i < to_sort.size(); ++i) {
+		result[i] = to_sort[i].first;
+	}
+
 	return result;
 }
 
 std::experimental::optional<char> get_next_vowel(
-	const std::map<char, unsigned> &character_frequency,
+	const std::vector<char> &char_array,
 	const std::string &ignore
 ) {
 
 	std::string vowels = "aeiouy";
 
-	for (
-		const std::pair<char, unsigned> &p
-		: sort_chars(character_frequency)
-	) {
+	for (char c : char_array) {
 		if (
-			vowels.find(p.first) != std::string::npos
-			&& ignore.find(p.first) == std::string::npos
+			vowels.find(c) != std::string::npos
+			&& ignore.find(c) == std::string::npos
 		) {
-			return p.first;
+			return c;
 		}
 	}
 
@@ -154,21 +159,18 @@ std::experimental::optional<char> get_next_vowel(
 }
 
 std::experimental::optional<char> get_next_constant(
-	const std::map<char, unsigned> &character_frequency,
+	const std::vector<char> &char_array,
 	const std::string &ignore
 ) {
 
 	std::string constants = "bcdfghjklmnpqrstvwxz";
 
-	for (
-		const std::pair<char, unsigned> &p
-		: sort_chars(character_frequency)
-	) {
+	for (char c : char_array) {
 		if (
-			constants.find(p.first) != std::string::npos
-			&& ignore.find(p.first) == std::string::npos
+			constants.find(c) != std::string::npos
+			&& ignore.find(c) == std::string::npos
 		) {
-			return p.first;
+			return c;
 		}
 	}
 
