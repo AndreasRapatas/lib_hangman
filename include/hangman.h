@@ -10,7 +10,6 @@
 #include <algorithm>
 #include <iostream>
 
-
 std::vector<std::string> read_dictionary(const std::string &path) {
 
 	std::vector<std::string> result;
@@ -35,7 +34,7 @@ std::vector<std::string> filter_width(
 	std::copy_if(
 		std::begin(dictionary),
 		std::end(dictionary),
-		std::begin(result),
+		std::back_inserter(result),
 		[&length](const std::string &s) {
 			return (s.length() == length);
 		}
@@ -81,7 +80,7 @@ std::map<char, unsigned> initialize_character_frequency() {
 	std::map<char, unsigned> result;
 
 	for (unsigned i = 'a'; i < 'z'; ++i) {
-		result.find(i)->second = 0;
+		result.insert({i, 0});
 	}
 
 	return result;
@@ -111,7 +110,6 @@ std::map<char, unsigned> count_character_frequency(
 std::vector<char> frequency_to_array(
 	const std::map<char, unsigned> &character_frequency
 ) {
-
 	std::vector<std::pair<char, unsigned>> to_sort(
 		std::begin(character_frequency),
 		std::end(character_frequency)
@@ -125,15 +123,15 @@ std::vector<char> frequency_to_array(
 			const std::pair<char, unsigned> &lhs,
 			const std::pair<char, unsigned> &rhs
 		) -> bool {
-			return lhs.second < rhs.second;
+			return lhs.second > rhs.second;
 		}
 	);
 
 	std::vector<char> result;
 	result.reserve(to_sort.size());
 
-	for (unsigned i = 0; i < to_sort.size(); ++i) {
-		result[i] = to_sort[i].first;
+	for (const auto &p : to_sort) {
+		result.push_back(p.first);
 	}
 
 	return result;
@@ -141,9 +139,8 @@ std::vector<char> frequency_to_array(
 
 std::experimental::optional<char> get_next_vowel(
 	const std::vector<char> &char_array,
-	const std::string &ignore
+	const std::string &ignore = ""
 ) {
-
 	std::string vowels = "aeiouy";
 
 	for (char c : char_array) {
@@ -160,9 +157,8 @@ std::experimental::optional<char> get_next_vowel(
 
 std::experimental::optional<char> get_next_constant(
 	const std::vector<char> &char_array,
-	const std::string &ignore
+	const std::string &ignore = ""
 ) {
-
 	std::string constants = "bcdfghjklmnpqrstvwxz";
 
 	for (char c : char_array) {
