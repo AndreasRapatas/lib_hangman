@@ -25,7 +25,7 @@ std::vector<std::string> read_dictionary(const std::string &path) {
 	return result;
 }
 
-std::vector<std::string> filter_width(
+std::vector<std::string> filter_length(
 	const std::vector<std::string> &dictionary,
 	unsigned length
 ) {
@@ -43,7 +43,7 @@ std::vector<std::string> filter_width(
 	return result;
 }
 
-std::vector<std::string> filter_match(
+std::vector<std::string> filter_pattern(
 	const std::vector<std::string> &dictionary,
 	const std::string &pattern,
 	char wildcard = '*'
@@ -54,16 +54,13 @@ std::vector<std::string> filter_match(
 
 		bool match = true;
 
-		if (pattern.length() != w.length()) {
-			continue;
-		}
+		if (pattern.length() != w.length()) { continue; }
 
 		for (unsigned i = 0; i < w.length(); ++i) {
 
 			if (pattern[i] == wildcard) { continue; }
 
 			if (w[i] != pattern[i]) {
-
 				match = false;
 				break;
 			}
@@ -75,27 +72,21 @@ std::vector<std::string> filter_match(
 	return result;
 }
 
-std::map<char, unsigned> initialize_character_frequency() {
-
-	std::map<char, unsigned> result;
-
-	for (unsigned i = 'a'; i < 'z'; ++i) {
-		result.insert({i, 0});
-	}
-
-	return result;
-}
-
 std::map<char, unsigned> count_character_frequency(
 	const std::vector<std::string> &dictionary
 ) {
-	std::map<char, unsigned> result = initialize_character_frequency();
+	std::map<char, unsigned> result;
+
+	// Initialize all chars
+	for (unsigned i = 'a'; i < 'z'; ++i) {
+		result.insert({i, 0});
+	}
 
 	for (const std::string &w : dictionary) {
 
 		bool checked[26] = { false };
 
-		for (char c: w) {
+		for (char c : w) {
 
 			if (checked[c - 'a']) { continue; }
 			checked[c - 'a'] = true;
@@ -135,6 +126,19 @@ std::vector<char> frequency_to_array(
 	}
 
 	return result;
+}
+
+std::experimental::optional<char> get_next_char(
+	const std::vector<char> &char_array,
+	const std::string &ignore = ""
+) {
+	for (char c : char_array) {
+		if (ignore.find(c) == std::string::npos) {
+			return c;
+		}
+	}
+
+	return std::experimental::nullopt;
 }
 
 std::experimental::optional<char> get_next_vowel(
