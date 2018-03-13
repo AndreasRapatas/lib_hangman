@@ -17,6 +17,7 @@ target_include_directories(
 # Make test executable
 set(
 	TEST_SOURCES
+	${CMAKE_CURRENT_SOURCE_DIR}/tests/main.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/tests/basic_testing.cpp
 )
 add_executable(Tests ${TEST_SOURCES})
