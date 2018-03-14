@@ -10,6 +10,8 @@
 #include <algorithm>
 #include <iostream>
 
+#include <cassert>
+
 std::vector<std::string> read_dictionary(const std::string &path) {
 
 	std::vector<std::string> result;
@@ -73,11 +75,12 @@ std::vector<std::string> filter_pattern(
 }
 
 std::map<char, unsigned> count_character_frequency(
-	const std::vector<std::string> &dictionary
+	const std::vector<std::string> &dictionary,
+	const std::string &pattern = ""
 ) {
 	std::map<char, unsigned> result;
 
-	// Initialize all chars
+	// Initialize all char frequencies to 0
 	for (unsigned i = 'a'; i < 'z'; ++i) {
 		result.insert({i, 0});
 	}
@@ -86,12 +89,16 @@ std::map<char, unsigned> count_character_frequency(
 
 		bool checked[26] = { false };
 
-		for (char c : w) {
+		for (unsigned i = 0; i < w.size(); ++i) {
 
-			if (checked[c - 'a']) { continue; }
-			checked[c - 'a'] = true;
+			// If we know the letter in this possition, don't count it
+			if (pattern.size() != 0 && pattern[i] != '*') { continue; }
 
-			result.find(c)->second++;
+			// Check each letter once per word
+			if (checked[w[i] - 'a']) { continue; }
+			checked[w[i] - 'a'] = true;
+
+			result.find(w[i])->second++;
 		}
 	}
 

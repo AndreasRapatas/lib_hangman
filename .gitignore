@@ -3,6 +3,7 @@ a.out
 *.o
 words.txt
 test
+build/
 
 CMakeCache.txt
 CMakeFiles
