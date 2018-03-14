@@ -141,4 +141,22 @@ SCENARIO("frequency counter") {
 	}
 }
 
+SCENARIO("frequency_to_array") {
 
+	GIVEN("a char freqency of a=2, b=1, c=7") {
+
+		std::map<char, unsigned> freq = {{'a', 2}, {'b', 1}, {'c', 7}};
+
+		WHEN("frequency_to_array") {
+
+			auto sorted = frequency_to_array(freq);
+
+			THEN("order should be 'cab'") {
+
+				REQUIRE(sorted[0] == 'c');
+				REQUIRE(sorted[1] == 'a');
+				REQUIRE(sorted[2] == 'b');
+			}
+		}
+	}
+}
