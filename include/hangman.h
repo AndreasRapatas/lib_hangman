@@ -184,4 +184,42 @@ std::experimental::optional<char> get_next_constant(
 	return std::experimental::nullopt;
 }
 
+std::experimental::optional<std::vector<unsigned>> find_char_positions(
+	const std::vector<std::string> &dictionary,
+	char c
+) {
+
+	std::map<unsigned, unsigned> appearance_per_position;
+
+	for (const std::string &w : dictionary) {
+
+		for (unsigned i = 0; i < w.size(); ++i) {
+			if (w[i] == c) {
+				++appearance_per_position.insert({i, 0}).first->second;
+			}
+		}
+	}
+
+	bool is_safe = true;
+
+	for (const auto &p : appearance_per_position) {
+		static unsigned appearances = p.second;
+
+		if (appearances != p.second) {
+			is_safe = false;
+		}
+	}
+
+	if (is_safe) {
+
+		std::vector<unsigned> result;
+		for (const auto &p : appearance_per_position) {
+			result.push_back(p.first);
+		}
+		return result;
+
+	} else {
+		return std::experimental::nullopt;
+	}
+}
 #endif // HANGMAN_H
