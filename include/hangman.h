@@ -222,4 +222,54 @@ std::experimental::optional<std::vector<unsigned>> find_char_positions(
 		return std::experimental::nullopt;
 	}
 }
+
+std::string xor_string(const std::string &word, const std::string &pattern, char wildcard = '*') {
+
+	std::string result;
+
+	// Must be same size
+	if (pattern.size() != word.size()) { return result; }
+
+	for (unsigned i = 0; i < word.size(); ++i) {
+		if (pattern[i] != wildcard) {
+			result.push_back(word[i]);
+		}
+	}
+
+	return result;
+}
+
+std::vector<std::string> must_contain(
+	const std::vector<std::string> &dictionary,
+	const std::string &pattern,
+	char c
+) {
+	std::vector<std::string> result;
+
+	for (const auto &w : dictionary) {
+		if (xor_string(w, pattern).find(c)) {
+			result.push_back(w);
+		}
+	}
+
+	return result;
+}
+
+std::vector<std::string> must_not_contain(
+	const std::vector<std::string> &dictionary,
+	const std::string &pattern,
+	char c
+) {
+	std::vector<std::string> result;
+
+	for (const auto &w : dictionary) {
+		if (!xor_string(w, pattern).find(c)) {
+			result.push_back(w);
+		}
+	}
+
+	return result;
+}
+
+
 #endif // HANGMAN_H
