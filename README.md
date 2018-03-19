@@ -1,5 +1,5 @@
 # lib_hangman
-A single-header C++ library providing functions for a hangman or crossword solver.
+A C++ library providing functions for a hangman or crossword solver.
 
 ```c++
 std::vector<std::string> read_dictionary(const std::string &path);
