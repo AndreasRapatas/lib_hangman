@@ -1,37 +1,47 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.3.0)
+project(lib_hangman VERSION 1.0.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
+# Target to LINK
+add_library(lib_hangman ./src/hangman.cpp)
 
-# Prepare "Catch" library for other executables
-set(
-	CATCH_INCLUDE_DIR
-	${CMAKE_CURRENT_SOURCE_DIR}/third_party/catch2/single_include
-)
-add_library(Catch INTERFACE)
 target_include_directories(
-	Catch INTERFACE
-	${CATCH_INCLUDE_DIR}
+	lib_hangman
+	PUBLIC 
+		$<INSTALL_INTERFACE:include>    
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
 
-# Make test executable
-set(
-	TEST_DIR
-	${CMAKE_CURRENT_SOURCE_DIR}/tests
+target_compile_options(
+	lib_hangman 
+	PRIVATE 
+		-Werror
+		-Wall
 )
-set(
-	SRC_DIR
-	${CMAKE_CURRENT_SOURCE_DIR}/src
+
+# Target to TEST
+add_executable(
+	Tests
+	./tests/main.cpp
+	./tests/filters.cpp
+	./tests/frequency_counter.cpp
+	./tests/next_char.cpp
+	./tests/positions.cpp
 )
-set(
-	TEST_SOURCES
-	${SRC_DIR}/hangman.cpp
-	${TEST_DIR}/main.cpp
-	${TEST_DIR}/filters.cpp
-	${TEST_DIR}/frequency_counter.cpp
-	${TEST_DIR}/next_char.cpp
-	${TEST_DIR}/positions.cpp
+
+target_link_libraries(
+	Tests
+	PRIVATE
+		lib_hangman
 )
-add_executable(Tests ${TEST_SOURCES})
-target_link_libraries(Tests Catch)
+
+install(
+	EXPORT      lib_hangman-targets
+	FILE        lib_hangmanTargets.cmake
+	NAMESPACE   lib_hangman::
+	DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/lib_hangman
+)
 
