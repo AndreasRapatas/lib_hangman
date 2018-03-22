@@ -56,8 +56,8 @@ std::experimental::optional<std::vector<unsigned>> find_char_positions(
 
 std::string remove_pattern(
 	const std::string &word,
-	const std::string &pattern
-	, char wildcard = '*'
+	const std::string &pattern,
+	char wildcard = '*'
 );
 
 std::vector<std::string> must_contain(
