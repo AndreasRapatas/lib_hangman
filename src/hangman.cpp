@@ -76,11 +76,6 @@ std::map<char, unsigned> count_character_frequency(
 ) {
 	std::map<char, unsigned> result;
 
-	// Initialize all char frequencies to 0
-	for (unsigned i = 'a'; i < 'z'; ++i) {
-		result.insert({i, 0});
-	}
-
 	for (const std::string &w : dictionary) {
 
 		bool checked[26] = { false };
@@ -94,7 +89,7 @@ std::map<char, unsigned> count_character_frequency(
 			if (checked[w[i] - 'a']) { continue; }
 			checked[w[i] - 'a'] = true;
 
-			result.find(w[i])->second++;
+			result.insert({w[i], 0}).first->second++;
 		}
 	}
 
