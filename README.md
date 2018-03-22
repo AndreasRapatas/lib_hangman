@@ -38,4 +38,27 @@ std::experimental::optional<char> get_next_constant(
 	const std::vector<char> &char_array,
 	const std::string &ignore = ""
 );
+
+std::experimental::optional<std::vector<unsigned>> find_char_positions(
+	const std::vector<std::string> &dictionary,
+	char c
+);
+
+std::string remove_pattern(
+	const std::string &word,
+	const std::string &pattern,
+	char wildcard = '*'
+);
+
+std::vector<std::string> must_contain(
+	const std::vector<std::string> &dictionary,
+	char c,
+	const std::string &pattern = ""
+);
+
+std::vector<std::string> must_not_contain(
+	const std::vector<std::string> &dictionary,
+	char c,
+	const std::string &pattern = ""
+);
 ```
