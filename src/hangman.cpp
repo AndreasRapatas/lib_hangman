@@ -184,7 +184,6 @@ std::experimental::optional<std::vector<unsigned>> find_char_positions(
 	const std::vector<std::string> &dictionary,
 	char c
 ) {
-
 	std::map<unsigned, unsigned> appearance_per_position;
 
 	for (const std::string &w : dictionary) {
@@ -219,19 +218,18 @@ std::experimental::optional<std::vector<unsigned>> find_char_positions(
 	}
 }
 
-std::string xor_string(
+std::string remove_pattern(
 	const std::string &word,
 	const std::string &pattern,
 	char wildcard
 ) {
-
 	std::string result;
 
 	// Must be same size
 	if (pattern.size() != word.size()) { return result; }
 
 	for (unsigned i = 0; i < word.size(); ++i) {
-		if (pattern[i] != wildcard) {
+		if (pattern[i] == wildcard) {
 			result.push_back(word[i]);
 		}
 	}
@@ -247,7 +245,7 @@ std::vector<std::string> must_contain(
 	std::vector<std::string> result;
 
 	for (const auto &w : dictionary) {
-		if (xor_string(w, pattern).find(c)) {
+		if (remove_pattern(w, pattern).find(c) != std::string::npos) {
 			result.push_back(w);
 		}
 	}
@@ -263,7 +261,7 @@ std::vector<std::string> must_not_contain(
 	std::vector<std::string> result;
 
 	for (const auto &w : dictionary) {
-		if (!xor_string(w, pattern).find(c)) {
+		if (remove_pattern(w, pattern).find(c) == std::string::npos) {
 			result.push_back(w);
 		}
 	}

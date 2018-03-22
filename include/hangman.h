@@ -54,7 +54,7 @@ std::experimental::optional<std::vector<unsigned>> find_char_positions(
 	char c
 );
 
-std::string xor_string(
+std::string remove_pattern(
 	const std::string &word,
 	const std::string &pattern
 	, char wildcard = '*'
