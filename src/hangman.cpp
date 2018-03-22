@@ -239,8 +239,8 @@ std::string remove_pattern(
 
 std::vector<std::string> must_contain(
 	const std::vector<std::string> &dictionary,
-	const std::string &pattern,
-	char c
+	char c,
+	const std::string &pattern
 ) {
 	std::vector<std::string> result;
 
@@ -255,8 +255,8 @@ std::vector<std::string> must_contain(
 
 std::vector<std::string> must_not_contain(
 	const std::vector<std::string> &dictionary,
-	const std::string &pattern,
-	char c
+	char c,
+	const std::string &pattern
 ) {
 	std::vector<std::string> result;
 
