@@ -1,3 +1,8 @@
+/**
+ * @file
+ * @brief Declarations of all the functions
+ */
+
 #ifndef HANGMAN_H
 #define HANGMAN_H
 #pragma once
@@ -5,12 +10,7 @@
 #include <vector>
 #include <map>
 #include <experimental/optional>
-#include <fstream>
-#include <iterator>
 #include <algorithm>
-#include <iostream>
-
-#include <cassert>
 
 std::vector<std::string> read_dictionary(const std::string &path);
 

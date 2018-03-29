@@ -1,10 +1,15 @@
+/**
+ * @file
+ * @brief Implementations of all the functions
+ */
+
 #include <vector>
 #include <map>
 #include <experimental/optional>
-#include <fstream>
 #include <iterator>
 #include <algorithm>
-#include <iostream>
+#include <fstream>
+#include <string>
 
 #include "../include/hangman.h"
 
@@ -213,6 +218,15 @@ std::experimental::optional<std::vector<unsigned>> find_char_positions(
 	}
 }
 
+/**
+ * @brief Removes the characters of pattern from word
+ *
+ * @param word The word you need to clean up
+ * @param pattern The characters you want removed from word
+ * @param wildcard If this character is in the pattern it will not be removed from word
+ *
+ * @return The word but without any characters of the pattern
+ */
 std::string remove_pattern(
 	const std::string &word,
 	const std::string &pattern,
@@ -232,6 +246,15 @@ std::string remove_pattern(
 	return result;
 }
 
+/**
+ * @brief Returns a vector of words that contain the specified character, ignoring it's appearence in the pattern (if provided)
+ *
+ * @param dictionary A vector of words that you are currently choosing from
+ * @param c The character that the words must contain
+ * @param pattern The pattern wich should be ignored in all words
+ *
+ * @return a vector of words that contain the specified character.
+ */
 std::vector<std::string> must_contain(
 	const std::vector<std::string> &dictionary,
 	char c,
@@ -248,6 +271,15 @@ std::vector<std::string> must_contain(
 	return result;
 }
 
+/**
+ * @brief Returns a vector of words that don't contain the specified character, ignoring it's appearence in the pattern (if provided)
+ *
+ * @param dictionary A vector of words that you are currently choosing from
+ * @param c The character that the words must not contain
+ * @param pattern The pattern wich should be ignored in all words
+ *
+ * @return a vector of words that don't contain the specified character.
+ */
 std::vector<std::string> must_not_contain(
 	const std::vector<std::string> &dictionary,
 	char c,
