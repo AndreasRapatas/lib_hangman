@@ -101,8 +101,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Include dependency graph for hangman.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="hangman_8h__incl.png" border="0" usemap="#include_2hangman_8h" alt=""/></div>
-<map name="include_2hangman_8h" id="include_2hangman_8h">
-</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -117,32 +115,32 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ada47e9338f9e87b423f8214dc4a736e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada47e9338f9e87b423f8214dc4a736e6"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>read_dictionary</b> (const std::string &amp;path)</td></tr>
+<tr class="memitem:ada47e9338f9e87b423f8214dc4a736e6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hangman_8h.html#ada47e9338f9e87b423f8214dc4a736e6">read_dictionary</a> (const std::string &amp;path)</td></tr>
+<tr class="memdesc:ada47e9338f9e87b423f8214dc4a736e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill a vector of strings from a file.  <a href="#ada47e9338f9e87b423f8214dc4a736e6">More...</a><br /></td></tr>
 <tr class="separator:ada47e9338f9e87b423f8214dc4a736e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4905d4615c76e8b03b2485034f1dbda1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4905d4615c76e8b03b2485034f1dbda1"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>filter_length</b> (const std::vector&lt; std::string &gt; &amp;dictionary, unsigned length)</td></tr>
+<tr class="memitem:a4905d4615c76e8b03b2485034f1dbda1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hangman_8h.html#a4905d4615c76e8b03b2485034f1dbda1">filter_length</a> (const std::vector&lt; std::string &gt; &amp;dictionary, unsigned length)</td></tr>
+<tr class="memdesc:a4905d4615c76e8b03b2485034f1dbda1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters out words that don't match the desired length.  <a href="#a4905d4615c76e8b03b2485034f1dbda1">More...</a><br /></td></tr>
 <tr class="separator:a4905d4615c76e8b03b2485034f1dbda1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60affe8873225d408834b4bacee2461e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60affe8873225d408834b4bacee2461e"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>filter_pattern</b> (const std::vector&lt; std::string &gt; &amp;dictionary, const std::string &amp;pattern, char wildcard= '*')</td></tr>
+<tr class="memitem:a60affe8873225d408834b4bacee2461e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hangman_8h.html#a60affe8873225d408834b4bacee2461e">filter_pattern</a> (const std::vector&lt; std::string &gt; &amp;dictionary, const std::string &amp;pattern, char wildcard= '*')</td></tr>
+<tr class="memdesc:a60affe8873225d408834b4bacee2461e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filter words that dont match the provided pattern.  <a href="#a60affe8873225d408834b4bacee2461e">More...</a><br /></td></tr>
 <tr class="separator:a60affe8873225d408834b4bacee2461e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1622b1d311b2495ae299f8c875a5573d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1622b1d311b2495ae299f8c875a5573d"></a>
-std::map&lt; char, unsigned &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>count_character_frequency</b> (const std::vector&lt; std::string &gt; &amp;dictionary, const std::string &amp;pattern=&quot;&quot;)</td></tr>
+<tr class="memitem:a1622b1d311b2495ae299f8c875a5573d"><td class="memItemLeft" align="right" valign="top">std::map&lt; char, unsigned &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hangman_8h.html#a1622b1d311b2495ae299f8c875a5573d">count_character_frequency</a> (const std::vector&lt; std::string &gt; &amp;dictionary, const std::string &amp;pattern=&quot;&quot;)</td></tr>
+<tr class="memdesc:a1622b1d311b2495ae299f8c875a5573d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the appearance of characters in words. Each character is counted once per word. If it's possition matches the pattern's, it's ignored.  <a href="#a1622b1d311b2495ae299f8c875a5573d">More...</a><br /></td></tr>
 <tr class="separator:a1622b1d311b2495ae299f8c875a5573d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3663781c1785f8bd725da940b07e2fb9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3663781c1785f8bd725da940b07e2fb9"></a>
-std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>frequency_to_array</b> (const std::map&lt; char, unsigned &gt; &amp;character_frequency)</td></tr>
+<tr class="memitem:a3663781c1785f8bd725da940b07e2fb9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hangman_8h.html#a3663781c1785f8bd725da940b07e2fb9">frequency_to_array</a> (const std::map&lt; char, unsigned &gt; &amp;character_frequency)</td></tr>
+<tr class="memdesc:a3663781c1785f8bd725da940b07e2fb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a map of characters and their appearance counters to an array sorted by the appearance counter.  <a href="#a3663781c1785f8bd725da940b07e2fb9">More...</a><br /></td></tr>
 <tr class="separator:a3663781c1785f8bd725da940b07e2fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac09e771692a2604aa55d5675a3802fd2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac09e771692a2604aa55d5675a3802fd2"></a>
-std::experimental::optional&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_next_char</b> (const std::vector&lt; char &gt; &amp;char_array, const std::string &amp;ignore=&quot;&quot;)</td></tr>
+<tr class="memitem:ac09e771692a2604aa55d5675a3802fd2"><td class="memItemLeft" align="right" valign="top">std::experimental::optional&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hangman_8h.html#ac09e771692a2604aa55d5675a3802fd2">get_next_char</a> (const std::vector&lt; char &gt; &amp;char_array, const std::string &amp;ignore=&quot;&quot;)</td></tr>
+<tr class="memdesc:ac09e771692a2604aa55d5675a3802fd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the character that apeared in the most words.  <a href="#ac09e771692a2604aa55d5675a3802fd2">More...</a><br /></td></tr>
 <tr class="separator:ac09e771692a2604aa55d5675a3802fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75083dc0d9702a9641461d8a4c14bbca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75083dc0d9702a9641461d8a4c14bbca"></a>
-std::experimental::optional&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_next_vowel</b> (const std::vector&lt; char &gt; &amp;char_array, const std::string &amp;ignore=&quot;&quot;)</td></tr>
+<tr class="memitem:a75083dc0d9702a9641461d8a4c14bbca"><td class="memItemLeft" align="right" valign="top">std::experimental::optional&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hangman_8h.html#a75083dc0d9702a9641461d8a4c14bbca">get_next_vowel</a> (const std::vector&lt; char &gt; &amp;char_array, const std::string &amp;ignore=&quot;&quot;)</td></tr>
+<tr class="memdesc:a75083dc0d9702a9641461d8a4c14bbca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the vowel that apeared in the most words.  <a href="#a75083dc0d9702a9641461d8a4c14bbca">More...</a><br /></td></tr>
 <tr class="separator:a75083dc0d9702a9641461d8a4c14bbca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a223617d2b5703642d65670e7f49d2a5e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a223617d2b5703642d65670e7f49d2a5e"></a>
-std::experimental::optional&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_next_constant</b> (const std::vector&lt; char &gt; &amp;char_array, const std::string &amp;ignore=&quot;&quot;)</td></tr>
+<tr class="memitem:a223617d2b5703642d65670e7f49d2a5e"><td class="memItemLeft" align="right" valign="top">std::experimental::optional&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hangman_8h.html#a223617d2b5703642d65670e7f49d2a5e">get_next_constant</a> (const std::vector&lt; char &gt; &amp;char_array, const std::string &amp;ignore=&quot;&quot;)</td></tr>
+<tr class="memdesc:a223617d2b5703642d65670e7f49d2a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the constatnt that apeared in the most words.  <a href="#a223617d2b5703642d65670e7f49d2a5e">More...</a><br /></td></tr>
 <tr class="separator:a223617d2b5703642d65670e7f49d2a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b79ef16e04c4f46d2204a618a3b6fb9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b79ef16e04c4f46d2204a618a3b6fb9"></a>
-std::experimental::optional&lt; std::vector&lt; unsigned &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>find_char_positions</b> (const std::vector&lt; std::string &gt; &amp;dictionary, char c)</td></tr>
+<tr class="memitem:a8b79ef16e04c4f46d2204a618a3b6fb9"><td class="memItemLeft" align="right" valign="top">std::experimental::optional&lt; std::vector&lt; unsigned &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hangman_8h.html#a8b79ef16e04c4f46d2204a618a3b6fb9">find_char_positions</a> (const std::vector&lt; std::string &gt; &amp;dictionary, char c)</td></tr>
+<tr class="memdesc:a8b79ef16e04c4f46d2204a618a3b6fb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">If a character appears in the same possitions in all provided words, it returns their positions.  <a href="#a8b79ef16e04c4f46d2204a618a3b6fb9">More...</a><br /></td></tr>
 <tr class="separator:a8b79ef16e04c4f46d2204a618a3b6fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42afc8ba3705f150db1712c2f4e35f0c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hangman_8h.html#a42afc8ba3705f150db1712c2f4e35f0c">remove_pattern</a> (const std::string &amp;word, const std::string &amp;pattern, char wildcard= '*')</td></tr>
 <tr class="memdesc:a42afc8ba3705f150db1712c2f4e35f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the characters of pattern from word.  <a href="#a42afc8ba3705f150db1712c2f4e35f0c">More...</a><br /></td></tr>
@@ -157,6 +155,290 @@ std::experimental::optional&lt; std::vector&lt; unsigned &gt; &gt;&#160;</td><td
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Declarations of all the functions. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a1622b1d311b2495ae299f8c875a5573d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;char, unsigned&gt; count_character_frequency </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dictionary</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>pattern</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Counts the appearance of characters in words. Each character is counted once per word. If it's possition matches the pattern's, it's ignored. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dictionary</td><td>The words to check </td></tr>
+    <tr><td class="paramname">pattern</td><td>The pattern to ignore</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A map of characters and their appearance counters </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4905d4615c76e8b03b2485034f1dbda1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; filter_length </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dictionary</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Filters out words that don't match the desired length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dictionary</td><td>The words to check </td></tr>
+    <tr><td class="paramname">length</td><td>The required length</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector&lt;string&gt; of words that match the length </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a60affe8873225d408834b4bacee2461e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; filter_pattern </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dictionary</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>pattern</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>wildcard</em> = <code>'*'</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Filter words that dont match the provided pattern. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dictionary</td><td>The words to check </td></tr>
+    <tr><td class="paramname">pattern</td><td>A string to match all words. E.g. "pot*to" </td></tr>
+    <tr><td class="paramname">wildcard</td><td>The character to ignore in the pattern. Default '*'</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector&lt;string&gt; of words that match the pattern </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8b79ef16e04c4f46d2204a618a3b6fb9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::experimental::optional&lt;std::vector&lt;unsigned&gt; &gt; find_char_positions </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dictionary</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If a character appears in the same possitions in all provided words, it returns their positions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dictionary</td><td>The words to check </td></tr>
+    <tr><td class="paramname">c</td><td>The character to find positions</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector&lt;unsigned&gt; with the positions of the character </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3663781c1785f8bd725da940b07e2fb9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;char&gt; frequency_to_array </td>
+          <td>(</td>
+          <td class="paramtype">const std::map&lt; char, unsigned &gt; &amp;&#160;</td>
+          <td class="paramname"><em>character_frequency</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transforms a map of characters and their appearance counters to an array sorted by the appearance counter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character_frequency</td><td>A map of characters and their appearance counters</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An array sorted by the appearance counter </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac09e771692a2604aa55d5675a3802fd2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::experimental::optional&lt;char&gt; get_next_char </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>char_array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>ignore</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the character that apeared in the most words. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">char_array</td><td>Characters sorted by appearance frequency </td></tr>
+    <tr><td class="paramname">ignore</td><td>Characters to ignore if they come up</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The next possible character. if there are none returns nullopt </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a223617d2b5703642d65670e7f49d2a5e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::experimental::optional&lt;char&gt; get_next_constant </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>char_array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>ignore</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the constatnt that apeared in the most words. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">char_array</td><td>Characters sorted by appearance frequency </td></tr>
+    <tr><td class="paramname">ignore</td><td>Characters to ignore if they come up</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The next possible constant character. if there are none returns nullopt </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a75083dc0d9702a9641461d8a4c14bbca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::experimental::optional&lt;char&gt; get_next_vowel </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>char_array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>ignore</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the vowel that apeared in the most words. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">char_array</td><td>Characters sorted by appearance frequency </td></tr>
+    <tr><td class="paramname">ignore</td><td>Characters to ignore if they come up</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The next possible vowel character. if there are none returns nullopt </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a57fca433ea4c6ee0693e612668c383e4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -177,7 +459,7 @@ std::experimental::optional&lt; std::vector&lt; unsigned &gt; &gt;&#160;</td><td
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>pattern</em>&#160;</td>
+          <td class="paramname"><em>pattern</em> = <code>&quot;&quot;</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -220,7 +502,7 @@ std::experimental::optional&lt; std::vector&lt; unsigned &gt; &gt;&#160;</td><td
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>pattern</em>&#160;</td>
+          <td class="paramname"><em>pattern</em> = <code>&quot;&quot;</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -240,6 +522,31 @@ std::experimental::optional&lt; std::vector&lt; unsigned &gt; &gt;&#160;</td><td
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a vector of words that don't contain the specified character. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ada47e9338f9e87b423f8214dc4a736e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; read_dictionary </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fill a vector of strings from a file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>Where to find the dictinary</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>vector&lt;string&gt; containing lines of the dictionary </dd></dl>
 
 </div>
 </div>
@@ -263,7 +570,7 @@ std::experimental::optional&lt; std::vector&lt; unsigned &gt; &gt;&#160;</td><td
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>wildcard</em>&#160;</td>
+          <td class="paramname"><em>wildcard</em> = <code>'*'</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
