@@ -1,9 +1,9 @@
-#include "../third_party/catch2/single_include/catch.hpp"
+#include <catch/catch.hpp>
 
 #include "../include/hangman.h"
 
 SCENARIO("contains") {
-	
+
 	GIVEN("'abcd', 'abad', 'xbcd'") {
 
 		std::vector<std::string> dictionary {"abcd", "abad", "xbcd"};
@@ -32,7 +32,7 @@ SCENARIO("contains") {
 		}
 
 		WHEN("must_contain('ab**', 'a')") {
-			
+
 			auto contains = must_contain(dictionary, 'a', "ab**");
 
 			THEN("contains = 'abad'") {
@@ -43,7 +43,7 @@ SCENARIO("contains") {
 		}
 
 		WHEN("must_not_contain('ab**', 'a')") {
-			
+
 			auto contains = must_not_contain(dictionary, 'a', "ab**");
 
 			THEN("contains = 'abcd', 'xbcd'") {

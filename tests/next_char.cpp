@@ -1,4 +1,4 @@
-#include "../third_party/catch2/single_include/catch.hpp"
+#include <catch/catch.hpp>
 
 #include "../include/hangman.h"
 
