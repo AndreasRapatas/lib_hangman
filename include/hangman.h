@@ -23,10 +23,10 @@
 #define HANGMAN_H
 #pragma once
 
+#include <string>
 #include <vector>
 #include <map>
 #include <experimental/optional>
-#include <algorithm>
 
 /**
  * @brief Fill a vector of strings from a file

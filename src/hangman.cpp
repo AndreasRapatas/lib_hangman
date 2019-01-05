@@ -3,13 +3,9 @@
  * @brief Implementations of all the functions
  */
 
-#include <vector>
-#include <map>
-#include <experimental/optional>
 #include <iterator>
 #include <algorithm>
 #include <fstream>
-#include <string>
 
 #include "../include/hangman.h"
 

@@ -1,33 +1,40 @@
 cmake_minimum_required(VERSION 3.0)
-project(lib_hangman VERSION 1.0.0 LANGUAGES CXX)
+
+# Required for YCM to work
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+project(
+	lib_hangman
+	VERSION 1.0.0
+	LANGUAGES CXX
+)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Target to LINK
 add_library(
-	lib_hangman
+	${PROJECT_NAME}
 	./src/hangman.cpp
 )
 
 target_include_directories(
-	lib_hangman
+	${PROJECT_NAME}
 	PUBLIC
 		$<INSTALL_INTERFACE:include>
 		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
 
 target_compile_options(
-	lib_hangman
+	${PROJECT_NAME}
 	PRIVATE
 		-Werror
 		-Wall
 )
 
-# =======
-# Testing
-# =======
+# =============================================================================
+#                                    Testing
+# =============================================================================
 
 # To run the tests, Install https://github.com/catchorg/Catch2
 
@@ -47,8 +54,8 @@ if (BUILD_TESTING AND Catch2_FOUND)
 	target_link_libraries(
 		${PROJECT_NAME}_test
 		PRIVATE
-			Catch2::Catch
-			lib_hangman
+			Catch2::Catch2
+			${PROJECT_NAME}
 	)
 
 	add_test(
