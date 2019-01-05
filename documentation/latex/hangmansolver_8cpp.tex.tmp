@@ -1,66 +1,54 @@
-\hypertarget{hangman_8h}{}\section{include/hangman.h File Reference}
-\label{hangman_8h}\index{include/hangman.\+h@{include/hangman.\+h}}
+\hypertarget{hangmansolver_8cpp}{}\section{src/hangmansolver.cpp File Reference}
+\label{hangmansolver_8cpp}\index{src/hangmansolver.\+cpp@{src/hangmansolver.\+cpp}}
 
 
-Declarations of all the functions.  
+Implementations of all the functions.  
 
 
-{\ttfamily \#include $<$string$>$}\newline
-{\ttfamily \#include $<$vector$>$}\newline
-{\ttfamily \#include $<$map$>$}\newline
-{\ttfamily \#include $<$experimental/optional$>$}\newline
-Include dependency graph for hangman.\+h\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{hangman_8h__incl}
-\end{center}
-\end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=178pt]{hangman_8h__dep__incl}
-\end{center}
-\end{figure}
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include \char`\"{}../include/hangman.\+h\char`\"{}}\newline
+Include dependency graph for hangmansolver.\+cpp\+:
+% FIG 0
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ std\+::string $>$ \hyperlink{hangman_8h_ada47e9338f9e87b423f8214dc4a736e6}{read\+\_\+dictionary} (const std\+::string \&path)
+std\+::vector$<$ std\+::string $>$ \hyperlink{hangmansolver_8cpp_ada47e9338f9e87b423f8214dc4a736e6}{read\+\_\+dictionary} (const std\+::string \&path)
 \begin{DoxyCompactList}\small\item\em Fill a vector of strings from a file. \end{DoxyCompactList}\item 
-std\+::vector$<$ std\+::string $>$ \hyperlink{hangman_8h_a4905d4615c76e8b03b2485034f1dbda1}{filter\+\_\+length} (const std\+::vector$<$ std\+::string $>$ \&dictionary, unsigned length)
+std\+::vector$<$ std\+::string $>$ \hyperlink{hangmansolver_8cpp_a4905d4615c76e8b03b2485034f1dbda1}{filter\+\_\+length} (const std\+::vector$<$ std\+::string $>$ \&dictionary, unsigned length)
 \begin{DoxyCompactList}\small\item\em Filters out words that don\textquotesingle{}t match the desired length. \end{DoxyCompactList}\item 
-std\+::vector$<$ std\+::string $>$ \hyperlink{hangman_8h_a99534dccde214cf085d0e571a09d6cc5}{filter\+\_\+pattern} (const std\+::vector$<$ std\+::string $>$ \&dictionary, const std\+::string \&pattern, char wildcard=\textquotesingle{} $\ast$\textquotesingle{})
+std\+::vector$<$ std\+::string $>$ \hyperlink{hangmansolver_8cpp_ad47d17ecfd4f083c423979fec14e17f7}{filter\+\_\+pattern} (const std\+::vector$<$ std\+::string $>$ \&dictionary, const std\+::string \&pattern, char wildcard)
 \begin{DoxyCompactList}\small\item\em Filter words that dont match the provided pattern. \end{DoxyCompactList}\item 
-std\+::map$<$ char, unsigned $>$ \hyperlink{hangman_8h_a1622b1d311b2495ae299f8c875a5573d}{count\+\_\+character\+\_\+frequency} (const std\+::vector$<$ std\+::string $>$ \&dictionary, const std\+::string \&pattern=\char`\"{}\char`\"{})
+std\+::map$<$ char, unsigned $>$ \hyperlink{hangmansolver_8cpp_a5e092642187020491952150cd43d0ee1}{count\+\_\+character\+\_\+frequency} (const std\+::vector$<$ std\+::string $>$ \&dictionary, const std\+::string \&pattern)
 \begin{DoxyCompactList}\small\item\em Counts the appearance of characters in words. Each character is counted once per word. If it\textquotesingle{}s possition matches the pattern\textquotesingle{}s, it\textquotesingle{}s ignored. \end{DoxyCompactList}\item 
-std\+::vector$<$ char $>$ \hyperlink{hangman_8h_a3663781c1785f8bd725da940b07e2fb9}{frequency\+\_\+to\+\_\+array} (const std\+::map$<$ char, unsigned $>$ \&character\+\_\+frequency)
+std\+::vector$<$ char $>$ \hyperlink{hangmansolver_8cpp_a3663781c1785f8bd725da940b07e2fb9}{frequency\+\_\+to\+\_\+array} (const std\+::map$<$ char, unsigned $>$ \&character\+\_\+frequency)
 \begin{DoxyCompactList}\small\item\em Transforms a map of characters and their appearance counters to an array sorted by the appearance counter. \end{DoxyCompactList}\item 
-std\+::experimental\+::optional$<$ char $>$ \hyperlink{hangman_8h_ac09e771692a2604aa55d5675a3802fd2}{get\+\_\+next\+\_\+char} (const std\+::vector$<$ char $>$ \&char\+\_\+array, const std\+::string \&ignore=\char`\"{}\char`\"{})
+std\+::experimental\+::optional$<$ char $>$ \hyperlink{hangmansolver_8cpp_a8df83002e03d77a8976c05beab222dd4}{get\+\_\+next\+\_\+char} (const std\+::vector$<$ char $>$ \&char\+\_\+array, const std\+::string \&ignore)
 \begin{DoxyCompactList}\small\item\em Get the character that apeared in the most words. \end{DoxyCompactList}\item 
-std\+::experimental\+::optional$<$ char $>$ \hyperlink{hangman_8h_a75083dc0d9702a9641461d8a4c14bbca}{get\+\_\+next\+\_\+vowel} (const std\+::vector$<$ char $>$ \&char\+\_\+array, const std\+::string \&ignore=\char`\"{}\char`\"{})
+std\+::experimental\+::optional$<$ char $>$ \hyperlink{hangmansolver_8cpp_a7e06b1d46a5289a2738001193cccb5a2}{get\+\_\+next\+\_\+vowel} (const std\+::vector$<$ char $>$ \&char\+\_\+array, const std\+::string \&ignore)
 \begin{DoxyCompactList}\small\item\em Get the vowel that apeared in the most words. \end{DoxyCompactList}\item 
-std\+::experimental\+::optional$<$ char $>$ \hyperlink{hangman_8h_a223617d2b5703642d65670e7f49d2a5e}{get\+\_\+next\+\_\+constant} (const std\+::vector$<$ char $>$ \&char\+\_\+array, const std\+::string \&ignore=\char`\"{}\char`\"{})
+std\+::experimental\+::optional$<$ char $>$ \hyperlink{hangmansolver_8cpp_aab30499b410710eeeeb7688234ee5aef}{get\+\_\+next\+\_\+constant} (const std\+::vector$<$ char $>$ \&char\+\_\+array, const std\+::string \&ignore)
 \begin{DoxyCompactList}\small\item\em Get the constatnt that apeared in the most words. \end{DoxyCompactList}\item 
-std\+::experimental\+::optional$<$ std\+::vector$<$ unsigned $>$ $>$ \hyperlink{hangman_8h_a8b79ef16e04c4f46d2204a618a3b6fb9}{find\+\_\+char\+\_\+positions} (const std\+::vector$<$ std\+::string $>$ \&dictionary, char c)
+std\+::experimental\+::optional$<$ std\+::vector$<$ unsigned $>$ $>$ \hyperlink{hangmansolver_8cpp_a8b79ef16e04c4f46d2204a618a3b6fb9}{find\+\_\+char\+\_\+positions} (const std\+::vector$<$ std\+::string $>$ \&dictionary, char c)
 \begin{DoxyCompactList}\small\item\em If a character appears in the same possitions in all provided words, it returns their positions. \end{DoxyCompactList}\item 
-std\+::string \hyperlink{hangman_8h_ab1474fd24375a98e650b739becf090a3}{remove\+\_\+pattern} (const std\+::string \&word, const std\+::string \&pattern, char wildcard=\textquotesingle{} $\ast$\textquotesingle{})
+std\+::string \hyperlink{hangmansolver_8cpp_adbfbe949254445d2547b52546f56c07f}{remove\+\_\+pattern} (const std\+::string \&word, const std\+::string \&pattern, char wildcard)
 \begin{DoxyCompactList}\small\item\em Removes the characters of pattern from word. \end{DoxyCompactList}\item 
-std\+::vector$<$ std\+::string $>$ \hyperlink{hangman_8h_a57fca433ea4c6ee0693e612668c383e4}{must\+\_\+contain} (const std\+::vector$<$ std\+::string $>$ \&dictionary, char c, const std\+::string \&pattern=\char`\"{}\char`\"{})
+std\+::vector$<$ std\+::string $>$ \hyperlink{hangmansolver_8cpp_ab27e44b6f131bd9d905bfeaad5c077c6}{must\+\_\+contain} (const std\+::vector$<$ std\+::string $>$ \&dictionary, char c, const std\+::string \&pattern)
 \begin{DoxyCompactList}\small\item\em Returns a vector of words that contain the specified character, ignoring it\textquotesingle{}s appearence in the pattern (if provided) \end{DoxyCompactList}\item 
-std\+::vector$<$ std\+::string $>$ \hyperlink{hangman_8h_aa0d9948dada05cb5694dae370b69fc0b}{must\+\_\+not\+\_\+contain} (const std\+::vector$<$ std\+::string $>$ \&dictionary, char c, const std\+::string \&pattern=\char`\"{}\char`\"{})
+std\+::vector$<$ std\+::string $>$ \hyperlink{hangmansolver_8cpp_a704e6e379a70c218fc80e3cea533d634}{must\+\_\+not\+\_\+contain} (const std\+::vector$<$ std\+::string $>$ \&dictionary, char c, const std\+::string \&pattern)
 \begin{DoxyCompactList}\small\item\em Returns a vector of words that don\textquotesingle{}t contain the specified character, ignoring it\textquotesingle{}s appearence in the pattern (if provided) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Declarations of all the functions. 
+Implementations of all the functions. 
 
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{hangman_8h_a1622b1d311b2495ae299f8c875a5573d}\label{hangman_8h_a1622b1d311b2495ae299f8c875a5573d}} 
-\index{hangman.\+h@{hangman.\+h}!count\+\_\+character\+\_\+frequency@{count\+\_\+character\+\_\+frequency}}
-\index{count\+\_\+character\+\_\+frequency@{count\+\_\+character\+\_\+frequency}!hangman.\+h@{hangman.\+h}}
+\mbox{\Hypertarget{hangmansolver_8cpp_a5e092642187020491952150cd43d0ee1}\label{hangmansolver_8cpp_a5e092642187020491952150cd43d0ee1}} 
+\index{hangmansolver.\+cpp@{hangmansolver.\+cpp}!count\+\_\+character\+\_\+frequency@{count\+\_\+character\+\_\+frequency}}
+\index{count\+\_\+character\+\_\+frequency@{count\+\_\+character\+\_\+frequency}!hangmansolver.\+cpp@{hangmansolver.\+cpp}}
 \subsubsection{\texorpdfstring{count\+\_\+character\+\_\+frequency()}{count\_character\_frequency()}}
 {\footnotesize\ttfamily std\+::map$<$char, unsigned$>$ count\+\_\+character\+\_\+frequency (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dictionary,  }\item[{const std\+::string \&}]{pattern = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
 
@@ -78,9 +66,9 @@ Counts the appearance of characters in words. Each character is counted once per
 \begin{DoxyReturn}{Returns}
 A map of characters and their appearance counters 
 \end{DoxyReturn}
-\mbox{\Hypertarget{hangman_8h_a4905d4615c76e8b03b2485034f1dbda1}\label{hangman_8h_a4905d4615c76e8b03b2485034f1dbda1}} 
-\index{hangman.\+h@{hangman.\+h}!filter\+\_\+length@{filter\+\_\+length}}
-\index{filter\+\_\+length@{filter\+\_\+length}!hangman.\+h@{hangman.\+h}}
+\mbox{\Hypertarget{hangmansolver_8cpp_a4905d4615c76e8b03b2485034f1dbda1}\label{hangmansolver_8cpp_a4905d4615c76e8b03b2485034f1dbda1}} 
+\index{hangmansolver.\+cpp@{hangmansolver.\+cpp}!filter\+\_\+length@{filter\+\_\+length}}
+\index{filter\+\_\+length@{filter\+\_\+length}!hangmansolver.\+cpp@{hangmansolver.\+cpp}}
 \subsubsection{\texorpdfstring{filter\+\_\+length()}{filter\_length()}}
 {\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ filter\+\_\+length (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dictionary,  }\item[{unsigned}]{length }\end{DoxyParamCaption})}
 
@@ -98,9 +86,9 @@ Filters out words that don\textquotesingle{}t match the desired length.
 \begin{DoxyReturn}{Returns}
 A vector$<$string$>$ of words that match the length 
 \end{DoxyReturn}
-\mbox{\Hypertarget{hangman_8h_a99534dccde214cf085d0e571a09d6cc5}\label{hangman_8h_a99534dccde214cf085d0e571a09d6cc5}} 
-\index{hangman.\+h@{hangman.\+h}!filter\+\_\+pattern@{filter\+\_\+pattern}}
-\index{filter\+\_\+pattern@{filter\+\_\+pattern}!hangman.\+h@{hangman.\+h}}
+\mbox{\Hypertarget{hangmansolver_8cpp_ad47d17ecfd4f083c423979fec14e17f7}\label{hangmansolver_8cpp_ad47d17ecfd4f083c423979fec14e17f7}} 
+\index{hangmansolver.\+cpp@{hangmansolver.\+cpp}!filter\+\_\+pattern@{filter\+\_\+pattern}}
+\index{filter\+\_\+pattern@{filter\+\_\+pattern}!hangmansolver.\+cpp@{hangmansolver.\+cpp}}
 \subsubsection{\texorpdfstring{filter\+\_\+pattern()}{filter\_pattern()}}
 {\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ filter\+\_\+pattern (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dictionary,  }\item[{const std\+::string \&}]{pattern,  }\item[{char}]{wildcard = {\ttfamily \textquotesingle{}~$\ast$\textquotesingle{}} }\end{DoxyParamCaption})}
 
@@ -120,9 +108,9 @@ Filter words that dont match the provided pattern.
 \begin{DoxyReturn}{Returns}
 A vector$<$string$>$ of words that match the pattern 
 \end{DoxyReturn}
-\mbox{\Hypertarget{hangman_8h_a8b79ef16e04c4f46d2204a618a3b6fb9}\label{hangman_8h_a8b79ef16e04c4f46d2204a618a3b6fb9}} 
-\index{hangman.\+h@{hangman.\+h}!find\+\_\+char\+\_\+positions@{find\+\_\+char\+\_\+positions}}
-\index{find\+\_\+char\+\_\+positions@{find\+\_\+char\+\_\+positions}!hangman.\+h@{hangman.\+h}}
+\mbox{\Hypertarget{hangmansolver_8cpp_a8b79ef16e04c4f46d2204a618a3b6fb9}\label{hangmansolver_8cpp_a8b79ef16e04c4f46d2204a618a3b6fb9}} 
+\index{hangmansolver.\+cpp@{hangmansolver.\+cpp}!find\+\_\+char\+\_\+positions@{find\+\_\+char\+\_\+positions}}
+\index{find\+\_\+char\+\_\+positions@{find\+\_\+char\+\_\+positions}!hangmansolver.\+cpp@{hangmansolver.\+cpp}}
 \subsubsection{\texorpdfstring{find\+\_\+char\+\_\+positions()}{find\_char\_positions()}}
 {\footnotesize\ttfamily std\+::experimental\+::optional$<$std\+::vector$<$unsigned$>$ $>$ find\+\_\+char\+\_\+positions (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dictionary,  }\item[{char}]{c }\end{DoxyParamCaption})}
 
@@ -140,9 +128,9 @@ If a character appears in the same possitions in all provided words, it returns 
 \begin{DoxyReturn}{Returns}
 A vector$<$unsigned$>$ with the positions of the character 
 \end{DoxyReturn}
-\mbox{\Hypertarget{hangman_8h_a3663781c1785f8bd725da940b07e2fb9}\label{hangman_8h_a3663781c1785f8bd725da940b07e2fb9}} 
-\index{hangman.\+h@{hangman.\+h}!frequency\+\_\+to\+\_\+array@{frequency\+\_\+to\+\_\+array}}
-\index{frequency\+\_\+to\+\_\+array@{frequency\+\_\+to\+\_\+array}!hangman.\+h@{hangman.\+h}}
+\mbox{\Hypertarget{hangmansolver_8cpp_a3663781c1785f8bd725da940b07e2fb9}\label{hangmansolver_8cpp_a3663781c1785f8bd725da940b07e2fb9}} 
+\index{hangmansolver.\+cpp@{hangmansolver.\+cpp}!frequency\+\_\+to\+\_\+array@{frequency\+\_\+to\+\_\+array}}
+\index{frequency\+\_\+to\+\_\+array@{frequency\+\_\+to\+\_\+array}!hangmansolver.\+cpp@{hangmansolver.\+cpp}}
 \subsubsection{\texorpdfstring{frequency\+\_\+to\+\_\+array()}{frequency\_to\_array()}}
 {\footnotesize\ttfamily std\+::vector$<$char$>$ frequency\+\_\+to\+\_\+array (\begin{DoxyParamCaption}\item[{const std\+::map$<$ char, unsigned $>$ \&}]{character\+\_\+frequency }\end{DoxyParamCaption})}
 
@@ -158,9 +146,9 @@ Transforms a map of characters and their appearance counters to an array sorted 
 \begin{DoxyReturn}{Returns}
 An array sorted by the appearance counter 
 \end{DoxyReturn}
-\mbox{\Hypertarget{hangman_8h_ac09e771692a2604aa55d5675a3802fd2}\label{hangman_8h_ac09e771692a2604aa55d5675a3802fd2}} 
-\index{hangman.\+h@{hangman.\+h}!get\+\_\+next\+\_\+char@{get\+\_\+next\+\_\+char}}
-\index{get\+\_\+next\+\_\+char@{get\+\_\+next\+\_\+char}!hangman.\+h@{hangman.\+h}}
+\mbox{\Hypertarget{hangmansolver_8cpp_a8df83002e03d77a8976c05beab222dd4}\label{hangmansolver_8cpp_a8df83002e03d77a8976c05beab222dd4}} 
+\index{hangmansolver.\+cpp@{hangmansolver.\+cpp}!get\+\_\+next\+\_\+char@{get\+\_\+next\+\_\+char}}
+\index{get\+\_\+next\+\_\+char@{get\+\_\+next\+\_\+char}!hangmansolver.\+cpp@{hangmansolver.\+cpp}}
 \subsubsection{\texorpdfstring{get\+\_\+next\+\_\+char()}{get\_next\_char()}}
 {\footnotesize\ttfamily std\+::experimental\+::optional$<$char$>$ get\+\_\+next\+\_\+char (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ char $>$ \&}]{char\+\_\+array,  }\item[{const std\+::string \&}]{ignore = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
 
@@ -178,9 +166,9 @@ Get the character that apeared in the most words.
 \begin{DoxyReturn}{Returns}
 The next possible character. if there are none returns nullopt 
 \end{DoxyReturn}
-\mbox{\Hypertarget{hangman_8h_a223617d2b5703642d65670e7f49d2a5e}\label{hangman_8h_a223617d2b5703642d65670e7f49d2a5e}} 
-\index{hangman.\+h@{hangman.\+h}!get\+\_\+next\+\_\+constant@{get\+\_\+next\+\_\+constant}}
-\index{get\+\_\+next\+\_\+constant@{get\+\_\+next\+\_\+constant}!hangman.\+h@{hangman.\+h}}
+\mbox{\Hypertarget{hangmansolver_8cpp_aab30499b410710eeeeb7688234ee5aef}\label{hangmansolver_8cpp_aab30499b410710eeeeb7688234ee5aef}} 
+\index{hangmansolver.\+cpp@{hangmansolver.\+cpp}!get\+\_\+next\+\_\+constant@{get\+\_\+next\+\_\+constant}}
+\index{get\+\_\+next\+\_\+constant@{get\+\_\+next\+\_\+constant}!hangmansolver.\+cpp@{hangmansolver.\+cpp}}
 \subsubsection{\texorpdfstring{get\+\_\+next\+\_\+constant()}{get\_next\_constant()}}
 {\footnotesize\ttfamily std\+::experimental\+::optional$<$char$>$ get\+\_\+next\+\_\+constant (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ char $>$ \&}]{char\+\_\+array,  }\item[{const std\+::string \&}]{ignore = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
 
@@ -198,9 +186,9 @@ Get the constatnt that apeared in the most words.
 \begin{DoxyReturn}{Returns}
 The next possible constant character. if there are none returns nullopt 
 \end{DoxyReturn}
-\mbox{\Hypertarget{hangman_8h_a75083dc0d9702a9641461d8a4c14bbca}\label{hangman_8h_a75083dc0d9702a9641461d8a4c14bbca}} 
-\index{hangman.\+h@{hangman.\+h}!get\+\_\+next\+\_\+vowel@{get\+\_\+next\+\_\+vowel}}
-\index{get\+\_\+next\+\_\+vowel@{get\+\_\+next\+\_\+vowel}!hangman.\+h@{hangman.\+h}}
+\mbox{\Hypertarget{hangmansolver_8cpp_a7e06b1d46a5289a2738001193cccb5a2}\label{hangmansolver_8cpp_a7e06b1d46a5289a2738001193cccb5a2}} 
+\index{hangmansolver.\+cpp@{hangmansolver.\+cpp}!get\+\_\+next\+\_\+vowel@{get\+\_\+next\+\_\+vowel}}
+\index{get\+\_\+next\+\_\+vowel@{get\+\_\+next\+\_\+vowel}!hangmansolver.\+cpp@{hangmansolver.\+cpp}}
 \subsubsection{\texorpdfstring{get\+\_\+next\+\_\+vowel()}{get\_next\_vowel()}}
 {\footnotesize\ttfamily std\+::experimental\+::optional$<$char$>$ get\+\_\+next\+\_\+vowel (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ char $>$ \&}]{char\+\_\+array,  }\item[{const std\+::string \&}]{ignore = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
 
@@ -218,9 +206,9 @@ Get the vowel that apeared in the most words.
 \begin{DoxyReturn}{Returns}
 The next possible vowel character. if there are none returns nullopt 
 \end{DoxyReturn}
-\mbox{\Hypertarget{hangman_8h_a57fca433ea4c6ee0693e612668c383e4}\label{hangman_8h_a57fca433ea4c6ee0693e612668c383e4}} 
-\index{hangman.\+h@{hangman.\+h}!must\+\_\+contain@{must\+\_\+contain}}
-\index{must\+\_\+contain@{must\+\_\+contain}!hangman.\+h@{hangman.\+h}}
+\mbox{\Hypertarget{hangmansolver_8cpp_ab27e44b6f131bd9d905bfeaad5c077c6}\label{hangmansolver_8cpp_ab27e44b6f131bd9d905bfeaad5c077c6}} 
+\index{hangmansolver.\+cpp@{hangmansolver.\+cpp}!must\+\_\+contain@{must\+\_\+contain}}
+\index{must\+\_\+contain@{must\+\_\+contain}!hangmansolver.\+cpp@{hangmansolver.\+cpp}}
 \subsubsection{\texorpdfstring{must\+\_\+contain()}{must\_contain()}}
 {\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ must\+\_\+contain (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dictionary,  }\item[{char}]{c,  }\item[{const std\+::string \&}]{pattern = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
 
@@ -240,9 +228,9 @@ Returns a vector of words that contain the specified character, ignoring it\text
 \begin{DoxyReturn}{Returns}
 a vector of words that contain the specified character. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{hangman_8h_aa0d9948dada05cb5694dae370b69fc0b}\label{hangman_8h_aa0d9948dada05cb5694dae370b69fc0b}} 
-\index{hangman.\+h@{hangman.\+h}!must\+\_\+not\+\_\+contain@{must\+\_\+not\+\_\+contain}}
-\index{must\+\_\+not\+\_\+contain@{must\+\_\+not\+\_\+contain}!hangman.\+h@{hangman.\+h}}
+\mbox{\Hypertarget{hangmansolver_8cpp_a704e6e379a70c218fc80e3cea533d634}\label{hangmansolver_8cpp_a704e6e379a70c218fc80e3cea533d634}} 
+\index{hangmansolver.\+cpp@{hangmansolver.\+cpp}!must\+\_\+not\+\_\+contain@{must\+\_\+not\+\_\+contain}}
+\index{must\+\_\+not\+\_\+contain@{must\+\_\+not\+\_\+contain}!hangmansolver.\+cpp@{hangmansolver.\+cpp}}
 \subsubsection{\texorpdfstring{must\+\_\+not\+\_\+contain()}{must\_not\_contain()}}
 {\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ must\+\_\+not\+\_\+contain (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dictionary,  }\item[{char}]{c,  }\item[{const std\+::string \&}]{pattern = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
 
@@ -262,9 +250,9 @@ Returns a vector of words that don\textquotesingle{}t contain the specified char
 \begin{DoxyReturn}{Returns}
 a vector of words that don\textquotesingle{}t contain the specified character. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{hangman_8h_ada47e9338f9e87b423f8214dc4a736e6}\label{hangman_8h_ada47e9338f9e87b423f8214dc4a736e6}} 
-\index{hangman.\+h@{hangman.\+h}!read\+\_\+dictionary@{read\+\_\+dictionary}}
-\index{read\+\_\+dictionary@{read\+\_\+dictionary}!hangman.\+h@{hangman.\+h}}
+\mbox{\Hypertarget{hangmansolver_8cpp_ada47e9338f9e87b423f8214dc4a736e6}\label{hangmansolver_8cpp_ada47e9338f9e87b423f8214dc4a736e6}} 
+\index{hangmansolver.\+cpp@{hangmansolver.\+cpp}!read\+\_\+dictionary@{read\+\_\+dictionary}}
+\index{read\+\_\+dictionary@{read\+\_\+dictionary}!hangmansolver.\+cpp@{hangmansolver.\+cpp}}
 \subsubsection{\texorpdfstring{read\+\_\+dictionary()}{read\_dictionary()}}
 {\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ read\+\_\+dictionary (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
 
@@ -280,9 +268,9 @@ Fill a vector of strings from a file.
 \begin{DoxyReturn}{Returns}
 vector$<$string$>$ containing lines of the dictionary 
 \end{DoxyReturn}
-\mbox{\Hypertarget{hangman_8h_ab1474fd24375a98e650b739becf090a3}\label{hangman_8h_ab1474fd24375a98e650b739becf090a3}} 
-\index{hangman.\+h@{hangman.\+h}!remove\+\_\+pattern@{remove\+\_\+pattern}}
-\index{remove\+\_\+pattern@{remove\+\_\+pattern}!hangman.\+h@{hangman.\+h}}
+\mbox{\Hypertarget{hangmansolver_8cpp_adbfbe949254445d2547b52546f56c07f}\label{hangmansolver_8cpp_adbfbe949254445d2547b52546f56c07f}} 
+\index{hangmansolver.\+cpp@{hangmansolver.\+cpp}!remove\+\_\+pattern@{remove\+\_\+pattern}}
+\index{remove\+\_\+pattern@{remove\+\_\+pattern}!hangmansolver.\+cpp@{hangmansolver.\+cpp}}
 \subsubsection{\texorpdfstring{remove\+\_\+pattern()}{remove\_pattern()}}
 {\footnotesize\ttfamily std\+::string remove\+\_\+pattern (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{word,  }\item[{const std\+::string \&}]{pattern,  }\item[{char}]{wildcard = {\ttfamily \textquotesingle{}~$\ast$\textquotesingle{}} }\end{DoxyParamCaption})}
 
