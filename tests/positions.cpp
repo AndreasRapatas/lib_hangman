@@ -1,6 +1,6 @@
 #include <catch2/catch.hpp>
 
-#include "../include/hangman.h"
+#include "../include/unhangman.h"
 
 SCENARIO("positioning") {
 

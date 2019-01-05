@@ -4,19 +4,14 @@
  */
 
 /**
- * @mainpage Welcome to lib_hangman
+ * @mainpage Welcome to unhangman
  * @section intro_sec Introduction
  *
  * This is a collection of functions designed to help you build a crossword / hangman game / solver.
  *
- * @section link Include with cmake
- *
- * add_subdirectory(./lib_hangman)\n
- * target_link_libraries(YourTarget	lib_hangman)
- *
  * @section usage Usage
  *
- * See the include/hangman.h in the files tab.
+ * See the include/unhangman.h in the files tab.
  */
 
 #ifndef HANGMAN_H

@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.0)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 project(
-	hangmansolver
+	unhangman
 	VERSION 0.2.0
 	LANGUAGES CXX
 )
@@ -15,7 +15,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(
 	${PROJECT_NAME}
-	./src/hangmansolver.cpp
+	./src/${PROJECT_NAME}.cpp
 )
 
 target_include_directories(

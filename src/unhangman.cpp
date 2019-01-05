@@ -7,7 +7,7 @@
 #include <algorithm>
 #include <fstream>
 
-#include "../include/hangman.h"
+#include "../include/unhangman.h"
 
 std::vector<std::string> read_dictionary(const std::string &path) {
 
