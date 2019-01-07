@@ -1,4 +1,4 @@
-# lib_hangman
+# unhangman
 A C++ library providing functions for a hangman or crossword solver.
 
 ```c++
